@@ -12,6 +12,9 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@slippi/slippi-js": "^5.0.5",
+    "chokidar": "^3.4.2",
+    "lodash": "^4.17.20",
     "nedb": "^1.8.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

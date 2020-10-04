@@ -1,7 +1,46 @@
 const { SlippiGame, characters, stages} = require('@slippi/slippi-js');
-let path = require('path');
+import path from 'path';
 
-function convertFile(filename) {
+class Character {
+    id: number = 0;
+    name: string = '';
+    colorId: number = 0;
+    colorName: string = '';
+}
+
+class Player {
+    index: number = 0;
+    tag: string = '';
+    code: string = '';
+    port: number = 0;
+    character: Character;
+    remainingStocks: number = 4;
+    controllerFix: string = '';
+
+    constructor() {
+        this.character = new Character();
+    }
+}
+
+class Game {
+    filename: string = '';
+    stage: {
+        id: string,
+        name: string
+    };
+    players: Player[];
+    winner: any;
+
+    constructor() {
+        this.players = [];
+        this.stage = {
+            id: '',
+            name: ''
+        }
+    }
+}
+
+function convertFile(filename: string): Game {
     const g = new SlippiGame(path.join(filename));
 
     const settings = g.getSettings();
@@ -9,7 +48,7 @@ function convertFile(filename) {
     const stats = g.getStats();
     //console.log(stats.stocks);
 
-    let game = {};
+    let game: Game = new Game();
     game.filename = filename;
 
     game.stage = {
@@ -17,7 +56,6 @@ function convertFile(filename) {
         name: stages.getStageName(settings.stageId)
     };
 
-    game.players = [];
     for(let player of settings.players) {
         game.players.push({
             index: player.playerIndex,

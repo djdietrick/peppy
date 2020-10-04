@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -23,7 +23,7 @@ export const db = firebase.firestore();
 export const functions = firebase.functions();
 export const auth = firebase.auth();
 
-require('./watcher.js');
+// require('./watcher.js');
 
 Vue.config.productionTip = false
 

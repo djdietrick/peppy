@@ -8,7 +8,9 @@ module.exports = {
         electronBuilder: {
           // List native deps here if they don't work
           externals: ['chokidar'],
-          nodeModulesPath: ['../../node_modules', './node_modules']
+          nodeModulesPath: ['../../node_modules', './node_modules'],
+          disableMainProcessTypescript: false,
+          mainProcessTypeChecking: false
         }
       }
 }

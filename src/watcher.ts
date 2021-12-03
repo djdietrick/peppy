@@ -13,7 +13,7 @@ let watcher = chokidar.watch(testGame);
 
 const processGame = functions.httpsCallable('processGame');
 
-watcher.on('add', (filepath) => {
+watcher.on('add', (filepath: string) => {
     const filename = filepath.replace(/^.*[\\\/]/, '')
     const directory = path.dirname(filepath);
 
@@ -21,7 +21,7 @@ watcher.on('add', (filepath) => {
 
     processGame(game).then(() => {
         console.log("Successfully processed game:", game.filename);
-    }).catch(err => {
+    }).catch((err: any) => {
         console.log(err);
     });
 

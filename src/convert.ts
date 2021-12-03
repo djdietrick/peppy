@@ -13,13 +13,9 @@ class Player {
     tag: string = '';
     code: string = '';
     port: number = 0;
-    character: Character;
+    character: Character = new Character();
     remainingStocks: number = 4;
     controllerFix: string = '';
-
-    constructor() {
-        this.character = new Character();
-    }
 }
 
 class Game {
@@ -28,11 +24,10 @@ class Game {
         id: string,
         name: string
     };
-    players: Player[];
+    players: Player[] = [];
     winner: any;
 
     constructor() {
-        this.players = [];
         this.stage = {
             id: '',
             name: ''
